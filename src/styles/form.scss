@@ -1,0 +1,19 @@
+input,
+textarea,
+select {
+    padding: 4px 8px;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    width: auto;
+}
+
+label {
+    display: inline-block;
+    margin: 0 0 10px;
+}
+
+.form-group {
+    margin: 0 0 15px;
+}
