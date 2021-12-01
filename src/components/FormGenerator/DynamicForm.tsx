@@ -1,6 +1,5 @@
 import { Formik, Form } from 'formik';
 import Inputs from './Inputs';
-// import Alert from './Alert';
 
 interface InitialValues {
   [key:string]: any;
@@ -24,48 +23,38 @@ const getInitialValues = (sections: Frontier.Section[]) => sections.reduce((init
   
 }, {});
 
-const DynamicForm = ({ sections }: { sections: Frontier.Section[]}) => {
-  // const [val, setVal] = useState({});
-  // const onSubmit = useCallback((evt) => {
-  //   evt?.preventDefault();
-  //   const form = new FormData(evt.target);
-  //   setVal(form);
-  //   console.log('@', form);
-  // }, []);
-  // console.log(val);
-  return (
-    <Formik
-      initialValues={getInitialValues(sections)}
-      onSubmit={(values, actions) => {
-        console.log(values, actions);
-      }}
-    >
-      <Form>
-        {sections.map(section => (
-          <div key={section.id}>
-            <h2>
-              {section.title}
-            </h2>
-            <div>
-              {section.content.map(item => (
-                <Inputs
-                  key={item.id}
-                  input={item}
-                />
-              ))}
-            </div>
+const DynamicForm = ({ sections }: { sections: Frontier.Section[]}) => (
+  <Formik
+    initialValues={getInitialValues(sections)}
+    onSubmit={(values, actions) => {
+      console.log(values, actions);
+    }}
+  >
+    <Form>
+      {sections.map(section => (
+        <div key={section.id}>
+          <h2 className="title">
+            {section.title}
+          </h2>
+          <div>
+            {section.content.map(item => (
+              <Inputs
+                key={item.id}
+                input={item}
+              />
+            ))}
           </div>
-        ))}
-        <div className="form-group text-right">
-          <input
-            className="btn btn-success"
-            type="submit"
-          />
         </div>
-      </Form>
-    </Formik>
+      ))}
+      <div className="form-group text-right">
+        <input
+          className="btn btn-success"
+          type="submit"
+        />
+      </div>
+    </Form>
+  </Formik>
 
-  );
-};
+);
 
 export default DynamicForm;

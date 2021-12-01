@@ -3,9 +3,6 @@ import DynamicForm from './FormGenerator/DynamicForm';
 
 function App() {
   const job = formInstructions as Frontier.Job;
-
-  // Check your console to see the full instructions!
-  console.log(job);
   const { sections, theme } = job;
 
   return (
