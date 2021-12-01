@@ -41,4 +41,15 @@ namespace Frontier {
     pattern?: string;
     step?: number;
   }
+
+  // Describe an InputElement
+  interface InputElement {
+    id: string;
+    size?: number;
+    options?: ElementMeta.options;
+    type?: Element.type;
+    multiple?: boolean;
+    name?: string;
+    onChange?: fn;
+  }
 }
